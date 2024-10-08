@@ -1,0 +1,15 @@
+quarkus:
+  datasource:
+    db-kind: h2
+    username: challenge
+    jdbc:
+      url: jdbc:h2:mem:challenge
+  hibernate-orm:
+    sql-load-script: import.sql
+    database:
+      generation: none
+      default-schema: invoice
+  jacoco:
+    excludes:
+      - "com/br/challenge/ubuntu/entities/**"
+      - "com/br/challenge/ubuntu/helpers/**"
