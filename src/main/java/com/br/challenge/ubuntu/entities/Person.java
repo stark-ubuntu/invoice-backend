@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -23,4 +24,8 @@ public class Person extends PanacheEntityBase {
     private UUID id;
     private String name;
     private String taxId;
+
+    public static List<Person> randomPersons (int bound) {
+        return Person.find("ORDER BY RANDOM()").page(0, bound).list();
+    }
 }
