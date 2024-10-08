@@ -1,2 +1,10 @@
-greeting:
-  message: "hello"
+quarkus:
+  datasource:
+    jdbc:
+      url: ${DATABASE_URL:urlDoBanco_schema}
+    db-kind: postgresql
+    username: ${DATABASE_USERNAME:user}
+    password: ${DATABASE_PASSWORD:password}
+  hibernate-orm:
+    database:
+      generation: none
