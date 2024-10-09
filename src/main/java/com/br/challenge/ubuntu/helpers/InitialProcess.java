@@ -40,13 +40,15 @@ public class InitialProcess {
         boolean condition = !(Instant.now().isAfter(startTime.plusSeconds(24 * 3600)));
 
         if (condition) {
+            System.out.println("Processing invoices ...");
             List<Person> persons = randomlySearchForPeopleServices.execute();
             List<Invoice> invoices = mountInvoiceServices.execute(persons);
             sendInvoiceServices.execute(invoices);
             invoices.forEach(invoice -> {
+                System.out.printf("Save invoice %s", invoice.taxId);
                 Invoicing invoicing = new Invoicing();
                 invoicing.setTaxId(invoice.taxId);
-                invoicing.setAmount(invoice.amount);
+                invoicing.setAmount(invoice.amount.intValue());
                 invoicing.persist();
             });
         } else
