@@ -18,7 +18,6 @@ import java.util.UUID;
 public class Invoicing extends PanacheEntityBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String taxId;
     private Number amount;
