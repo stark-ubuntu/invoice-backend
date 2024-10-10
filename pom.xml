@@ -167,8 +167,24 @@
             </activation>
             <properties>
                 <skipITs>false</skipITs>
+                <stark.bank>sandbox</stark.bank>
                 <quarkus.native.enabled>true</quarkus.native.enabled>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <ZONE>sandbox</ZONE>
+                                <ID_ACCOUNT>6019402684170240</ID_ACCOUNT>
+                                <KEY>../../../../privateKey.pem</KEY>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
