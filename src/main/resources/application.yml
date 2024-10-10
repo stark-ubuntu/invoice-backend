@@ -1,8 +1,8 @@
 stark:
   account:
-    environment: ${ZONE:local}
-    id: ${ID_ACCOUNT:0000000000}
-    key: ${KEY:local}
+    environment: ${ZONE:sandbox}
+    id: ${ID_ACCOUNT:6019402684170240}
+    key: ${KEY:../../../../privateKey.pem}
 quarkus:
   datasource:
     jdbc:
