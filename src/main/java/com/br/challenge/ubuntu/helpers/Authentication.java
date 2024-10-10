@@ -1,6 +1,7 @@
 package com.br.challenge.ubuntu.helpers;
 
-import com.starkbank.*;
+import com.starkbank.Project;
+import com.starkbank.Settings;
 import io.quarkus.runtime.Startup;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -11,7 +12,7 @@ import java.nio.file.Paths;
 
 @Startup
 @ApplicationScoped
-public class Authentication {
+public class Authentication extends LoggingResource {
 
     @ConfigProperty(name = "stark.account.id")
     String accountId;
@@ -24,7 +25,7 @@ public class Authentication {
 
     @PostConstruct
     void execute() throws Exception {
-        System.out.println("Set auth");
+        info("Starting application and setting user to use sdk");
         String privateKeyContent = Files.readString(Paths.get(key));
 
         Settings.user = new Project(
@@ -32,6 +33,8 @@ public class Authentication {
                 accountId,
                 privateKeyContent
         );
+
+        info("Everything's fine here!");
     }
 
 

@@ -19,7 +19,7 @@ class MountInvoiceServicesTest {
     MountInvoiceServices mountInvoiceServices;
 
     @Test
-    void shouldMountInvoice() throws Exception {
+    void shouldMountInvoice() {
         List<Person> persons = List.of(new Person(
                 UUID.fromString("0917aa8a-076c-4e1f-ac81-503e1c4bfb2e"),
                 "John",
