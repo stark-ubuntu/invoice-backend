@@ -2,6 +2,7 @@ package com.br.challenge.ubuntu.helpers;
 
 import com.starkbank.Project;
 import com.starkbank.Settings;
+import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.runtime.Startup;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -12,6 +13,7 @@ import java.nio.file.Paths;
 
 @Startup
 @ApplicationScoped
+@UnlessBuildProperty(name = "active.test", stringValue = "true")
 public class Authentication extends LoggingResource {
 
     @ConfigProperty(name = "stark.account.id")

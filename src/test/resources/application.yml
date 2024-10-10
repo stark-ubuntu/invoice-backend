@@ -1,3 +1,5 @@
+active:
+  test: true
 quarkus:
   datasource:
     db-kind: h2
